@@ -11,8 +11,7 @@ resource "aws_launch_template" "aws_asg_launch" {
     yum -y install httpd.x86_64
     systemctl start httpd.service
     systemctl enable httpd.service
-    echo "DB Endpoint: ${data.terraform_remote_state.rds_remote_data.outputs.rds_instance_address}" > /var/www/html/index.html
-    echo "DB Port: ${data.terraform_remote_state.rds_remote_data.outputs.rds_instance_port}" >> /var/www/html/index.html
+    echo "<h1>Hello My WEB</h1>" > /var/www/html/index.html #이 부분 수정
   EOF
   )
   lifecycle {
